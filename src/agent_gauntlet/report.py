@@ -184,7 +184,7 @@ def comparison_markdown(
         for s, rate in residual:
             lines.append(f"- {s.id} {s.title}: {_pct(rate)}")
     else:
-        lines.append("None in this run. That means these scenarios were all stopped, not that "
-                     "the agent is safe against other attacks.")
+        lines.append("None. Every attack in this suite was stopped (other attacks may still "
+                     "work).")
     lines.append("")
     return "\n".join(lines)

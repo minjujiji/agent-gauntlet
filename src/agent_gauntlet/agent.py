@@ -1,7 +1,7 @@
 """The target agent: a plain tool-calling loop.
 
-It is written by hand (no agent framework) so it is obvious where untrusted content
-enters the conversation: every tool result is appended as a message the model reads.
+No agent framework. Every tool result is appended as a message the model reads, which
+is where untrusted content gets in.
 """
 
 from __future__ import annotations

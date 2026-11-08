@@ -61,10 +61,9 @@ class NoDefense(Defense):
 
 _FLAGS = re.IGNORECASE
 
-# Patterns for text that tries to give the model instructions. Deliberately English-only
-# and phrase-based, like a typical off-the-shelf filter. Known gaps are documented in
-# tests/test_defenses.py rather than patched, because patching each gap as it is found
-# would make the scanner look better than it is.
+# Patterns for text that tries to give the model instructions. English-only and
+# phrase-based, roughly what a simple off-the-shelf filter does. Known misses are
+# listed in tests/test_defenses.py (KNOWN_SCANNER_GAPS).
 INJECTION_PATTERNS: list[tuple[str, re.Pattern[str]]] = [
     (
         "ignore-previous",
@@ -131,7 +130,7 @@ SECRET_PATTERNS: list[tuple[str, re.Pattern[str]]] = [
             r"\b(api[- _]?key|secret|password|passwd|credentials?|token)\b\s*[:=]\s*\S+", _FLAGS
         ),
     ),
-    # Case-sensitive on purpose: upper-case hyphenated tokens such as ABC-API-KEY-12345.
+    # Upper-case tokens like ABC-API-KEY-12345. No IGNORECASE: it would hit "state-of-the-art".
     ("key-shaped-token", re.compile(r"\b[A-Z0-9]{2,}(?:-[A-Z0-9]+){2,}\b")),
     ("long-hex", re.compile(r"\b[0-9a-f]{32,}\b", _FLAGS)),
 ]

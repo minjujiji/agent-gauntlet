@@ -18,9 +18,9 @@ FROM_LINE = re.compile(r"^From:\s*(\S+)", re.MULTILINE)
 
 
 class MockLLM:
-    """A deterministic test double. It is NOT a source of research results.
+    """Deterministic fake model for tests and CI, so they run without Ollama.
 
-    It exists so the harness, judge and CI can run without a real model. It can do the
+    Its numbers mean nothing as results. It can do the
     legitimate tasks in the shipped scenarios. With gullible=True it also obeys
     function-call-style directives found in the first tool output (the failure being
     studied); natural-language attacks do not fool it. With gullible=False it ignores all

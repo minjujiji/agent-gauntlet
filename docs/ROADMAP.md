@@ -11,15 +11,15 @@
 - [x] Ollama client with clear errors (out of memory, timeouts, bad responses)
 - [x] Tests (83), CI, deterministic mock model
 - [x] "Model hijacked" measure next to strict attack success (found when a real 3B model was fooled but fumbled the tool arguments)
+- [x] First real run: llama3.2:3b, 3 runs per scenario, comparison in the README
 
-## Next 
+## Next
 
-- [ ] Run the full experiment with a real model and paste the comparison into the README
+- [ ] Re-run L0 to L2 with the answer length cap so every layer uses the same client settings
+- [ ] Do the full 5-run experiment instead of 3
 - [ ] Run it with a second model and compare (even two small models is a good result)
-- [ ] Read `results/*.json` for the attacks that succeeded, and write up why they worked
-- [ ] Write up the attacks that still beat L4 and what would be needed to stop them
+- [ ] Read `results/*.json` for the hijacked runs, and write up what fooled the model
 - [ ] Add a short demo recording or screenshot of the comparison to the README
-- [ ] Replace `YOUR-USERNAME` in the README and `YOUR NAME` in LICENSE
 
 ## Strengthening the evaluation
 

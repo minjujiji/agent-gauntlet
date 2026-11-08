@@ -9,7 +9,7 @@ dist/
 .pytest_cache/
 .ruff_cache/
 
-# Run output (commit curated results under docs/results/ instead)
+# Run output
 results/
 
 # Editors / OS

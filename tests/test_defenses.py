@@ -66,10 +66,8 @@ def test_scanner_only_inspects_outbound_tools():
     assert InjectionScanner().authorize(call, ctx()).allowed
 
 
-# The scanner is phrase-based and English-only. These are its known blind spots, recorded
-# here on purpose instead of being patched, because patching each gap as it is found would
-# make the headline numbers look better than the scanner really is. If you improve the
-# scanner, update this set and say so in the README.
+# Attacks the scanner misses. Left unpatched so L1 isn't tuned to my own attacks.
+# If the scanner changes, update this set and the README.
 KNOWN_SCANNER_GAPS = {"S004", "S008", "S010", "S011", "S012", "S018"}
 KNOWN_FALSE_POSITIVES = {"B005"}
 
